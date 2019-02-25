@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -55,6 +56,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
             super(view);
             txtName = view.findViewById(R.id.txtName);
             imgThumbnail = view.findViewById(R.id.imgThumbnail);
+
+            txtName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Movies movie = movies.get(getAdapterPosition());
+                    Toast.makeText(
+                            context,
+                            movie.getName(),
+                            Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 
